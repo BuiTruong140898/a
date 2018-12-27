@@ -1,0 +1,75 @@
+<!DOCTYPE html name="mausac" >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+      
+        .list{
+            float: center;
+        }
+        .form{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div style=" border: 1px solid blue; width: 500px;  height: 150px; padding: 50px;  margin: 50px auto;">
+        <form id="form1" class="form" >
+            <fieldset style="width:230px">
+                <legend>Sở thích của bạn</legend>
+              <div> <input type="checkbox" value="Du lịch">Du lịch
+               <input type="checkbox" value="Nghe nhạc">Nghe nhạc</div>
+               <div><input type="checkbox" value="Mua Sắm">Mua sắm
+               <input type="checkbox" value="Xem phim">Xem Phim</div>
+               <div><input type="checkbox" value="Thể thao">Thẻ thao
+               <input type="checkbox" value="Đọc sách" >Đọc sách</div>
+            </fieldset>
+        </form>
+        <form class="form" id="form2" style="width:230px">
+            <fieldset>
+                <legend>Bạn thích màu gì nhất                </legend>
+                <div><input  name="mausac" type="radio"  value="Trắng" id="">Trắng
+                    <input  name="mausac" type="radio"  value="Đỏ" id="">Đỏ</div>
+                <div>
+                        <input name="mausac"  type="radio" value="Đen"id="">Đen
+                        <input  name="mausac" type="radio"  value="Tím" id="">Tím
+                </div>
+                <div>
+                        <input name="mausac"  type="radio" value= "Xanh" id="">Xanh
+                        <input name="mausac"  type="radio"  value="Vàng" id="">Vàng
+        
+                </div>
+            </fieldset>
+        </form>
+        <div align="center">
+        <input onclick="Chon()" type="button" value="Thông tin bạn chọn">
+        </>
+
+    </div>
+</body>
+<script >function Chon(){
+   var a=document.getElementById("form1");
+   var b=document.forms[1];
+   text1="Sở thích cá nhân: ";
+   for(var i=1; i<a.length; i++)
+   {
+       if(a[i].checked){
+       text1+=a[i].value+", ";}
+   }
+   text2="Màu sắc bạn thích nhất: ";
+   for(var i=1; i<b.length; i++)
+   {
+       if(b[i].checked){
+       text2+=b[i].value+", ";}
+   }
+   text=text1+"  "+text2;
+   alert(text);
+  
+   //alert(b[1].value);
+
+}</script>
+</html>

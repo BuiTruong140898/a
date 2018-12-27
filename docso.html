@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        margin-bottom: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div style="margin: 100px auto; width: 300px; height: 200px;border: 1px blue solid; background: rgba(0, 225, 255, 0.527)">
+        <div align="center" style="width:100%; height: 50px; background-color: rgba(0, 153, 255, 0.863); font-family: arial;font-weight: bold;font-size:40px ">Doc so</div>
+        <div>
+            <form action="">
+                Nhap so tu 0 -> 999 <input type="number" name="input" id="input" min="0" max="999"> 
+                <input onclick="docso()" type="button" value="Doc so">
+            </form>
+
+        </div>
+        <div>Bang chu <div id="hienthi" style="float: right; width: 70%; height: 20px; background: yellow"></div></div> 
+    
+    </div>
+    
+    <script>
+         function docso(){
+            document.getElementById("hienthi").innerHTML='';
+             var so=document.forms[0][0].value;
+             var hangtram=parseInt(so/100);
+             var hangchuc=parseInt((so%100)/10);
+             var hangdonvi=parseInt((so%10));
+             var chuso=['mot', 'hai', 'ba', 'bon', 'nam', 'sau', 'bay', 'tam','chin']
+            
+             if(0>so||so>999)
+                alert('Vui long nhap tu 0-> 999');
+                 else{
+                 switch(hangtram){
+                 case 0: break;
+                 default:
+                 document.getElementById("hienthi").innerHTML+=chuso[hangtram-1]+' tram ';
+                 break;
+}
+switch(hangchuc){
+    case 0:
+    if(hangtram!=0 && hangdonvi!=0)
+    document.getElementById("hienthi").innerHTML+=" linh ";
+    break;
+    case 1:
+    document.getElementById("hienthi").innerHTML+=' muoi ';
+    break;
+    default:
+    document.getElementById("hienthi").innerHTML+=chuso[hangchuc-1]+' muoi ';
+    break;
+}
+if(hangdonvi)
+document.getElementById("hienthi").innerHTML+=chuso[hangdonvi-1];
+            
+               
+         }
+        }
+    </script>
+</body>
+</html>    

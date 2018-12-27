@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+      .row {
+        float: left;
+        margin: 5px 5px;
+      }
+     
+      li{
+      padding-top:20px; 
+      }
+    </style>
+  </head>
+  <body >
+    <div  
+      style="border: 1px blue solid ;width: 500px; height: 300px; padding: 10px 10px; margin: 100px auto"
+    >
+      <div align="left" class="row" style="width: 30% ">
+        Thực đơn tiệc
+        <form name="thucdontiec">
+          <select name="thucdon" id='thucdon' size="10" style="margin-bottom:10px;  width: 200px; height: 200px;" multiple="all">
+            <option name="1" value="Bò nấu đậu hà lan" 
+              >Bò nấu đậu hà lan</option
+            >
+            <option name="2" value="chả giò tôm">chả giò tôm</option>
+            <option name="3" value="Chè hạt sen">Chè hạt sen</option>
+            <option name="4" value="Cơm chiên Dương Châu"
+              >Cơm chiên Dương Châu</option
+            >
+            <option name="5" value="Gỏi ngó sen">Gỏi ngó sen</option>
+            <option name="6" value="Lẩu cá điêu hồng"
+              >Lẩu cá điêu hồng</option
+            >
+            <option name="7" value="Lẩu cá Thái Lan">Lẩu cá Thái Lan</option>
+            <option name="8" value="Gà hấp chao">Gà hấp chao</option>
+            <option name="9" value="Heo sữa quay">Heo sữa quay</option>
+            <option name="10" value="Đậu hũ chiên">Đậu hũ chiên</option>
+            <option name="11" value="Trứng luộc">Trứng luộc</option>
+            <option name="12" value="Ếch xào">Ếch xào </option>
+          </select>
+          <input type="button" id="tinhtien" name="tinhtien" onclick="TinhTien()" value="Tính tiền" />
+        </form>
+      </div>
+      <div align="left" class="row" style="width: 20% ">
+        <form align="center" name="cacnut">
+          <ul align="center" type="none">
+            <li><input type="button" name=">" value=">" onclick="nut1()" /></li>
+            <li>
+              <input type="button" name=">>" value=">>" onclick="nut2()" />
+            </li>
+            <li><input onclick="nut3()" type="button" name="<" value="<" /></li>
+            <li>
+              <input type="button" onclick="nut4()" name="<<" value="<<" />
+            </li>
+          </ul>
+        </form>
+      </div>
+      <div align="left" class="row" style="width:40% ">
+        Danh sách món ăn
+        <form name="danhsachmonan">
+          <select name="danhsachchon" id="danhsachchon" multiple=10 style=" margin-bottom:10px;  border:1px solid;display:block;height: 200px; width:200px " ></select>
+          <div id="sotien">Số tiền thanh toán là</div>
+          
+        </form>
+      </div>
+    </div>
+  </body>
+  <script >function nut1(){
+  document.getElementById('danhsachchon').innerHTML='';
+  var a=document.forms['thucdontiec'];
+  var b=a['thucdon'];
+  var i=0;
+  while(b.length>i){
+ 
+  
+    if(b[i].selected)
+    
+        document.getElementById('danhsachchon').innerHTML+="<option>"+b[i].value+"</option>";
+    i++;
+  }
+}
+function nut2() {
+  var a = document.forms["thucdontiec"];
+  var b = a["thucdon"];
+  var i = 0;
+  document.getElementById('danhsachchon').innerHTML="";
+  while (b.length > i) {
+    document.getElementById("danhsachchon").innerHTML +="<option>"+b[i].value+"</option><BR/>";
+    i++;
+  }
+}
+
+
+function nut3(){
+
+  var x = document.getElementById('danhsachchon');
+    for(var i=x.length-1; i>=0; i--){
+      if(x[i].selected){
+      x.removeChild(x[i]);
+    }
+  }
+  
+}
+
+function nut4() {
+  document.getElementById('danhsachchon').innerHTML="";
+ }
+ function TinhTien(){
+   var a=document.getElementById('danhsachchon');
+   var sotien=a.length*10000;
+   document.getElementById("sotien").innerHTML+=sotien;
+  
+     a=document.getElementById('tinhtien');
+     a.style.display="none";
+
+ }</script>
+</html>
